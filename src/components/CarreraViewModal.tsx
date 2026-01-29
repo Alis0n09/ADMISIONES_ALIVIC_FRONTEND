@@ -80,7 +80,7 @@ export default function CarreraViewModal({ open, onClose, carrera }: CarreraView
               iconColor="#ec4899"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
             <InfoCard
               icon={<School sx={{ fontSize: 20 }} />}
               label="ESTADO"

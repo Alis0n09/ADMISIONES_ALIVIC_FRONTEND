@@ -27,6 +27,8 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
     acceptTerms: false,
+    tipo_identificacion: "",
+    numero_identificacion: "",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -82,7 +84,7 @@ export default function RegisterPage() {
         origen: "Formulario Web",
       };
 
-      const cliente = await clienteService.createClientePublico(clienteData);
+      await clienteService.createClientePublico(clienteData);
       
       // Aquí podrías crear el usuario también si el backend lo requiere
       // Por ahora solo redirigimos al login

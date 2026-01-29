@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography, Box, Chip } from "@mui/material";
+import { Grid, Stack, Typography, Box } from "@mui/material";
 import School from "@mui/icons-material/School";
 import Person from "@mui/icons-material/Person";
 import CalendarToday from "@mui/icons-material/CalendarToday";

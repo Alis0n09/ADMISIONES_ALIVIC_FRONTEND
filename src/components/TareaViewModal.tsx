@@ -1,9 +1,9 @@
-import { Grid, Stack, Typography, Box, Chip } from "@mui/material";
+import { Grid, Stack, Typography, Box } from "@mui/material";
 import Assignment from "@mui/icons-material/Assignment";
 import Person from "@mui/icons-material/Person";
 import CalendarToday from "@mui/icons-material/CalendarToday";
 import Event from "@mui/icons-material/Event";
-import ViewModalBase, { InfoCard, formatDate, getInitials } from "./ViewModalBase";
+import ViewModalBase, { InfoCard, formatDate } from "./ViewModalBase";
 import type { TareaCrm } from "../services/tarea.service";
 
 interface TareaViewModalProps {

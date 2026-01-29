@@ -15,6 +15,7 @@ export default function Logo({ size = "medium", showText = true, horizontal = fa
   };
 
   const currentSize = sizes[size];
+  const shouldShowText = showText && !symbolOnly;
 
   const LogoContent = (
     <>
@@ -47,7 +48,7 @@ export default function Logo({ size = "medium", showText = true, horizontal = fa
       </Box>
 
       {/* Text */}
-      {showText && (
+      {shouldShowText && (
         <Typography
           variant={currentSize.text as any}
           sx={{

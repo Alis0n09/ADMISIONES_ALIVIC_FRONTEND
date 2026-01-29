@@ -1,4 +1,4 @@
-import { Box, IconButton, InputBase, Stack, Button, Badge, Typography } from "@mui/material";
+import { Box, IconButton, InputBase, Stack, Button, Badge } from "@mui/material";
 import { Search, Notifications, Home } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

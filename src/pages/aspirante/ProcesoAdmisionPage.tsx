@@ -7,7 +7,6 @@ import {
   Chip,
   CircularProgress,
   Divider,
-  LinearProgress,
   Stack,
   Typography,
 } from "@mui/material";

@@ -34,7 +34,6 @@ import AsesorSeguimientosPage from "../pages/asesor/AsesorSeguimientosPage";
 import AsesorEvaluacionesPage from "../pages/asesor/AsesorEvaluacionesPage";
 import AsesorCalendarioPage from "../pages/asesor/AsesorCalendarioPage";
 
-import AspiranteDashboard from "../pages/aspirante/AspiranteDashboard";
 import AspirantePerfilPage from "../pages/aspirante/AspirantePerfilPage";
 import AspirantePostulacionesPage from "../pages/aspirante/AspirantePostulacionesPage";
 import AspiranteDocumentosPage from "../pages/aspirante/AspiranteDocumentosPage";

@@ -5,7 +5,6 @@ import {
   Container,
   Stack,
   Typography,
-  Divider,
   Chip,
 } from "@mui/material";
 import TopbarPublic from "../../components/TopbarPublic";

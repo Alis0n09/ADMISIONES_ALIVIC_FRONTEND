@@ -46,11 +46,13 @@ export default function EmpleadosPage() {
   const [form, setForm] = useState<Partial<Empleado>>(empty);
 
   const load = useCallback(() => {
-    s.getEmpleados({ page, limit }).then((r) => {
-      const list = (r as any).items ?? [];
-      setItems(list);
-      setTotal((r as any).meta?.totalItems ?? 0);
-    }).catch(() => setItems([]));
+    s.getEmpleados({ page, limit })
+      .then((r) => {
+        const list = (r as any).items ?? [];
+        setItems(list);
+        setTotal((r as any).meta?.totalItems ?? 0);
+      })
+      .catch(() => setItems([]));
   }, [page, limit]);
 
   useEffect(() => load(), [load]);
@@ -111,7 +113,7 @@ export default function EmpleadosPage() {
     }
     
     // Preparar datos para enviar según el DTO del backend
-    const prepareData = (data: Partial<Empleado>) => {
+    const prepareData = (_data: Partial<Empleado>) => {
       const prepared: any = {
         nombres: nombresTrim,
         apellidos: apellidosTrim,

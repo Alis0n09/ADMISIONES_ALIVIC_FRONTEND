@@ -26,7 +26,6 @@ export interface Paginated<T> {
   };
 }
 
-type ApiSuccess<T> = { success: true; message: string; data: T };
 type ApiError = { success: false; message: string; statusCode: number; error?: any };
 
 function unwrap<T>(payload: any): T {

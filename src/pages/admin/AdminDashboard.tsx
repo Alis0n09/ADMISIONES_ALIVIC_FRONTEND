@@ -10,12 +10,9 @@ import {
 } from "@mui/material";
 import People from "@mui/icons-material/People";
 import Badge from "@mui/icons-material/Badge";
-import Assignment from "@mui/icons-material/Assignment";
-import School from "@mui/icons-material/School";
 import Campaign from "@mui/icons-material/Campaign";
 import EmojiEvents from "@mui/icons-material/EmojiEvents";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PersonIcon from "@mui/icons-material/Person";
 import { useEffect, useState } from "react";
@@ -488,8 +485,6 @@ export default function AdminDashboard() {
                     const completedPercent = completed / total;
                     const inProgressPercent = inProgress / total;
                     const notStartedPercent = notStarted / total;
-                    
-                    let currentOffset = 0;
                     
                     return (
                       <>

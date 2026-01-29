@@ -1,4 +1,4 @@
-import { Box, Divider, List, ListItemButton, ListItemIcon, ListItemText, Typography, Avatar, Stack } from "@mui/material";
+import { Box, Divider, List, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import People from "@mui/icons-material/People";
 import Badge from "@mui/icons-material/Badge";
