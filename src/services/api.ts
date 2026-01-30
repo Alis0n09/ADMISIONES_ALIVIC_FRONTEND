@@ -1,24 +1,38 @@
 import axios from "axios";
 
+const rawBaseUrl =
+  (import.meta.env.VITE_API_URL ?? "").trim() ||
+  "https://alivic-admisiones-api.desarrollo-software.xyz";
+
+const baseURL =
+  rawBaseUrl.startsWith("http://") || rawBaseUrl.startsWith("https://")
+    ? rawBaseUrl.replace(/\/$/, "")
+    : `https://${rawBaseUrl.replace(/\/$/, "")}`;
+
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://alivic-admisiones-api.desarrollo-software.xyz",
+  baseURL,
 });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
 
 api.interceptors.response.use(
-  (r) => r,
-  (e) => {
-    const isLoginRequest = String(e?.config?.url || "").includes("auth/login");
-    if (e?.response?.status === 401 && !isLoginRequest) {
+  (response) => response,
+  (error) => {
+    // No redirigir al login si el error 401 viene del endpoint de login
+    const isLoginRequest = String(error?.config?.url || "").includes("auth/login");
+
+    if (error?.response?.status === 401 && !isLoginRequest) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       window.location.href = "/login";
     }
-    return Promise.reject(e);
+
+    return Promise.reject(error);
   }
 );
