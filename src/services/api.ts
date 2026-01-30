@@ -4,7 +4,7 @@ const rawBaseUrl =
   (import.meta.env.VITE_API_URL ?? "").trim() ||
   "https://alivic-admisiones-api.desarrollo-software.xyz";
 
-const baseURL =
+export const baseURL =
   rawBaseUrl.startsWith("http://") || rawBaseUrl.startsWith("https://")
     ? rawBaseUrl.replace(/\/$/, "")
     : `https://${rawBaseUrl.replace(/\/$/, "")}`;
