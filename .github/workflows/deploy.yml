@@ -20,7 +20,7 @@ jobs:
 
       - name: Create env for build
         run: |
-          printf "%s" "${{ secrets.REACT_ENV }}" > .env.production
+          printf "%s" "${{ secrets.REACT_ENV }}" > .env
 
       - name: Install deps
         run: npm ci
@@ -46,11 +46,11 @@ jobs:
           script: |
             set -e
 
-            mkdir -p /var/www/alivic
-            rm -rf /var/www/alivic/*
-            cp -r /tmp/alivic_build/* /var/www/alivic/
+            mkdir -p /var/www/alivic/dist
+            rm -rf /var/www/alivic/dist/*
+            cp -r /tmp/alivic_build/dist* /var/www/alivic/dist/
 
-            chown -R www-data:www-data /var/www/alivic
+            chown -R www-data:www-data /var/www/alivic/dist
 
             nginx -t
             systemctl reload nginx
