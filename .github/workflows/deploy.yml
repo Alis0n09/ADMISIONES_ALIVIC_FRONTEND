@@ -48,8 +48,11 @@ jobs:
 
             mkdir -p /var/www/alivic/dist
             rm -rf /var/www/alivic/dist/*
-            # Los archivos subidos están en /tmp/alivic_build/ (index.html, assets/, etc.)
             cp -r /tmp/alivic_build/* /var/www/alivic/dist/
+            if [ -f /var/www/alivic/dist/dist/index.html ]; then
+              mv /var/www/alivic/dist/dist/* /var/www/alivic/dist/
+              rmdir /var/www/alivic/dist/dist 2>/dev/null || rm -rf /var/www/alivic/dist/dist
+            fi
 
             chown -R www-data:www-data /var/www/alivic/dist
             chmod -R u=rX,g=rX,o=rX /var/www/alivic/dist
