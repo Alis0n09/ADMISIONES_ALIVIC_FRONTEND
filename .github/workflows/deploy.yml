@@ -48,9 +48,11 @@ jobs:
 
             mkdir -p /var/www/alivic/dist
             rm -rf /var/www/alivic/dist/*
-            cp -r /tmp/alivic_build/dist* /var/www/alivic/dist/
+            # Los archivos subidos están en /tmp/alivic_build/ (index.html, assets/, etc.)
+            cp -r /tmp/alivic_build/* /var/www/alivic/dist/
 
             chown -R www-data:www-data /var/www/alivic/dist
+            chmod -R u=rX,g=rX,o=rX /var/www/alivic/dist
 
             nginx -t
             systemctl reload nginx

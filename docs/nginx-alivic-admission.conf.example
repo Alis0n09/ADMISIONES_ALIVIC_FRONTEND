@@ -1,0 +1,30 @@
+# Ejemplo de configuración Nginx para el frontend (alivic-admission.desarrollo-software.xyz)
+# Copiar a: /etc/nginx/sites-available/alivic-admission
+# Luego: sudo ln -s /etc/nginx/sites-available/alivic-admission /etc/nginx/sites-enabled/
+#        sudo nginx -t && sudo systemctl reload nginx
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name alivic-admission.desarrollo-software.xyz;
+
+    root /var/www/alivic/dist;
+    index index.html;
+
+    # Servir index.html para todas las rutas (SPA)
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Cache para assets con hash
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    access_log /var/log/nginx/alivic-admission.access.log;
+    error_log  /var/log/nginx/alivic-admission.error.log;
+}
+
+# Si usas HTTPS (certbot/Let's Encrypt), después de obtener el certificado
+# tendrás un bloque server { listen 443 ssl; ... } generado por certbot.
